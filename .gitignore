@@ -1,0 +1,8 @@
+/run/
+/build/
+/.gradle/
+/.idea/
+/build/
+/gradle/
+/logs/
+/mcmodsrepo/

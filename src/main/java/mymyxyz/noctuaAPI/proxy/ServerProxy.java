@@ -1,0 +1,7 @@
+package mymyxyz.noctuaAPI.proxy;
+
+public class ServerProxy {
+    public void register() {
+    }
+
+}

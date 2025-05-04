@@ -1,0 +1,88 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+
+version = '0.0.1'
+group = 'fr.mymyxyz.noctuaAPI'
+archivesBaseName = 'Proditor'
+compileJava.options.encoding = 'UTF-8'
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
+minecraft {
+    mappings channel: 'snapshot', version: '20171003-1.12'
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        server {
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:23.0.0'
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+    compile 'mysql:mysql-connector-java:5.1.37'
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "NoctuaAPI",
+                "Specification-Vendor"    : "NoctuaAPI",
+                "Specification-Version"   : "0.0.1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${version}",
+                "Implementation-Vendor"   : "Proditor",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/mcmodsrepo"
+        }
+    }
+
+    sourceSets {
+        main {
+            output.resourcesDir = output.classesDir
+        }
+    }
+
+    task devJar(type: Jar) {
+        from(sourceSets.main.output) {
+            include '**'
+        }
+        classifier = 'dev'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}

@@ -1,0 +1,24 @@
+# Item
+item.NoctuaItem.name=Item Noctua
+item.stone_of_reminder.name=Pierre de Rappel
+
+# TAB
+itemGroup.ItemsTabs=Proditor
+
+# MESSAGE
+class.get=Le Joueur %s est actuellement avec la Classe %s
+class.error.notExist=§cCette Classe n'existe pas !
+class.change.success=§aLe Joueur %s §aest maintenant de la Classe %s
+command.item.durability.max.success=§aLa durabilité de l'item est maintenant de %s
+command.item.durability.current.success=§aLa durabilité maximum de l'item est maintenant de %s
+command.item.durability.value.denied=§cLa valeur doit être un chiffre entier !
+command.item.rarity.success=§aLa Rareté de l'item est maintenant %s
+command.item.rarity.denied=§cLa Rareté %s §cn'existe pas !
+command.item.classe.success=§aLa Classe requise pour l'item est maintenant %s
+command.item.classe.denied=§cLa Classe %s §cn'existe pas !
+command.item.reset.success=§aTout les NBT on bien étais retiré
+command.item.remove.success=§aLa donnée %s §aà bien étais retiré
+command.item.remove.denied=§cLa donnée %s §cn'existe pas dans l'item
+tooltip.rarity=Rareté
+tooltip.classe=Classe
+tooltip.durability=Durabilité
