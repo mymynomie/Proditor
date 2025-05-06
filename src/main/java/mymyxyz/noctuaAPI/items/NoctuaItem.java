@@ -1,9 +1,11 @@
 package mymyxyz.noctuaAPI.items;
 
+import mymyxyz.noctuaAPI.NoctuaAPI;
 import mymyxyz.noctuaAPI.NoctuaUtils;
 import mymyxyz.noctuaAPI.player.classe.EnumClasse;
 import mymyxyz.noctuaAPI.items.utils.Enum.EnumRarity;
 import mymyxyz.noctuaAPI.items.utils.NoctuaItemStack;
+import mymyxyz.noctuaAPI.tabs.NoctuaTabs;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -23,33 +25,33 @@ public class NoctuaItem extends Item {
     private EnumClasse itemClass = null;
     private int maxDurability = 0;
 
-    public NoctuaItem(String name, Integer size, EnumRarity rarity, CreativeTabs creativeTabs) {
+    public NoctuaItem(String name, Integer size, EnumRarity rarity) {
         setUnlocalizedName(name);
         setRegistryName(name);
         setNoRepair();
         this.rarity = rarity;
         if (size != null) setMaxStackSize(size);
-        if (creativeTabs != null) setCreativeTab(creativeTabs);
+        setCreativeTab(NoctuaAPI.ItemsTabs);
     }
 
-    public NoctuaItem(String name, Integer size, int maxDurability, EnumRarity rarity, CreativeTabs creativeTabs) {
+    public NoctuaItem(String name, Integer size, int maxDurability, EnumRarity rarity) {
         setUnlocalizedName(name);
         setRegistryName(name);
         setNoRepair();
         this.rarity = rarity;
         if (maxDurability != 0) this.maxDurability = maxDurability;
         if (size != null) setMaxStackSize(size);
-        if (creativeTabs != null) setCreativeTab(creativeTabs);
+        setCreativeTab(NoctuaAPI.ItemsTabs);
     }
 
-    public NoctuaItem(String name, Integer size, EnumRarity rarity, EnumClasse itemClass, CreativeTabs creativeTabs) {
+    public NoctuaItem(String name, Integer size, EnumRarity rarity, EnumClasse itemClass) {
         setUnlocalizedName(name);
         setRegistryName(name);
         setNoRepair();
         this.rarity = rarity;
         this.itemClass = itemClass;
         if (size != null) setMaxStackSize(size);
-        if (creativeTabs != null) setCreativeTab(creativeTabs);
+        setCreativeTab(NoctuaAPI.ItemsTabs);
     }
 
     @Override

@@ -3,12 +3,14 @@ package mymyxyz.noctuaAPI;
 import mymyxyz.noctuaAPI.command.CommandClasse;
 import mymyxyz.noctuaAPI.command.CommandGetNBT;
 import mymyxyz.noctuaAPI.command.CommandItemEdit;
+import mymyxyz.noctuaAPI.customNPC.Scripting;
 import mymyxyz.noctuaAPI.init.ItemsMod;
 import mymyxyz.noctuaAPI.network.PaquetJobsOnJoinServer;
 import mymyxyz.noctuaAPI.proxy.ServerProxy;
 import mymyxyz.noctuaAPI.tabs.NoctuaTabs;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -19,6 +21,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
+import noppes.npcs.api.NpcAPI;
 
 import java.io.IOException;
 
@@ -38,7 +41,7 @@ public class NoctuaAPI {
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event, EntityPlayer player) {
+    public void init(FMLInitializationEvent event) {
         proxy.register();
     }
 
@@ -47,7 +50,7 @@ public class NoctuaAPI {
     }
 
     @EventHandler
-    public void serverInit(FMLServerStartingEvent event) throws IOException {
+    public void serverInit(FMLServerStartingEvent event) {
         event.registerServerCommand(new CommandGetNBT());
         event.registerServerCommand(new CommandItemEdit());
         event.registerServerCommand(new CommandClasse());

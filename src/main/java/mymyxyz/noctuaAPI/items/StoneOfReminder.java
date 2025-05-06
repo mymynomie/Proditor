@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 
 public class StoneOfReminder extends NoctuaItem {
 
-    public StoneOfReminder(String name, Integer size, int durability, EnumRarity rarity, CreativeTabs creativeTabs) {
-        super(name, size, durability, rarity, creativeTabs);
+    public StoneOfReminder(String name, Integer size, int durability, EnumRarity rarity) {
+        super(name, size, durability, rarity);
     }
 
     @Override

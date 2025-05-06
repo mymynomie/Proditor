@@ -3,6 +3,7 @@ package mymyxyz.noctuaAPI.init;
 import mymyxyz.noctuaAPI.NoctuaAPI;
 import mymyxyz.noctuaAPI.References;
 import mymyxyz.noctuaAPI.items.NoctuaItem;
+import mymyxyz.noctuaAPI.items.QuestScroll;
 import mymyxyz.noctuaAPI.items.StoneOfReminder;
 import mymyxyz.noctuaAPI.player.classe.EnumClasse;
 import mymyxyz.noctuaAPI.items.utils.Enum.EnumRarity;
@@ -21,14 +22,15 @@ import java.util.Objects;
 @Mod.EventBusSubscriber(modid = References.MODID)
 public class ItemsMod {
     public static Item noctuaItem, item,
-    stone_of_reminder;
+    stone_of_reminder, quest_scroll;
 
     private static final List<Item> itemList = new ArrayList<>();
 
     public static void init() {
-        noctuaItem = addItemList(new NoctuaItem("NoctuaItem", 1, EnumRarity.RARE, NoctuaAPI.ItemsTabs));
-        item = addItemList(new NoctuaItem("item", null, EnumRarity.EPIC, EnumClasse.ASSASSIN, NoctuaAPI.ItemsTabs));
-        stone_of_reminder = addItemList(new StoneOfReminder("stone_of_reminder", 1, 2, EnumRarity.RARE, NoctuaAPI.ItemsTabs));
+        noctuaItem = addItemList(new NoctuaItem("NoctuaItem", 1, EnumRarity.RARE));
+        item = addItemList(new NoctuaItem("item", null, EnumRarity.EPIC, EnumClasse.ASSASSIN));
+        stone_of_reminder = addItemList(new StoneOfReminder("stone_of_reminder", 1, 2, EnumRarity.RARE));
+        quest_scroll = addItemList(new QuestScroll("quest_scroll", 1, EnumRarity.RARE));
 
     }
 

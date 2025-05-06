@@ -85,4 +85,14 @@ publishing {
     repositories {
         mavenCentral()
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    dependencies {
+        compileOnly files('libs/CustomNPCs_1.12.2-03Feb22snapshot.jar')
+    }
 }
